@@ -13,6 +13,7 @@
 		909B4E4A20E08BF300085577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 909B4E4920E08BF300085577 /* Assets.xcassets */; };
 		909B4E4D20E08BF300085577 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 909B4E4B20E08BF300085577 /* LaunchScreen.storyboard */; };
 		909B4E5620E08DEB00085577 /* coreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 909B4E5420E08DEB00085577 /* coreData.xcdatamodeld */; };
+		90E9119920E83999003BF3D5 /* WordsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E9119820E83999003BF3D5 /* WordsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		909B4E4C20E08BF300085577 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		909B4E4E20E08BF300085577 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		909B4E5520E08DEB00085577 /* coreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = coreData.xcdatamodel; sourceTree = "<group>"; };
+		90E9119820E83999003BF3D5 /* WordsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				909B4E4B20E08BF300085577 /* LaunchScreen.storyboard */,
 				909B4E4E20E08BF300085577 /* Info.plist */,
 				909B4E5420E08DEB00085577 /* coreData.xcdatamodeld */,
+				90E9119820E83999003BF3D5 /* WordsTableViewController.swift */,
 			);
 			path = iOSCourse;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 				909B4E4520E08BEF00085577 /* ViewController.swift in Sources */,
 				909B4E5620E08DEB00085577 /* coreData.xcdatamodeld in Sources */,
 				909B4E4320E08BEF00085577 /* AppDelegate.swift in Sources */,
+				90E9119920E83999003BF3D5 /* WordsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
