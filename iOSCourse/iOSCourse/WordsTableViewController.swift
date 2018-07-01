@@ -7,14 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
 class WordsTableViewController: UITableViewController {
   
-  var words: [String] = ["Lunes", "Kaaz", "mes", "mininho", "Noviembre"]
+  var manageObjects: [NSManagedObject] = [] //creando el modelo para coredata
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
   }
   
   // MARK: - Table view data source
@@ -26,13 +26,14 @@ class WordsTableViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     // #warning Incomplete implementation, return the number of rows
-    return words.count
+    return manageObjects.count
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
     
-    cell.textLabel?.text = words[indexPath.row]
+    let lista = manageObjects[indexPath.row]
+    cell.textLabel?.text = lista.value(forKey: "word") as? String
     
     return cell
   }
@@ -42,7 +43,8 @@ class WordsTableViewController: UITableViewController {
     
     let saveWord = UIAlertAction(title: "Add", style: .default) { (UIAlertAction) -> Void in
       guard  let textField = alert.textFields?.first, let userString = textField.text else { return }
-      self.words.append(userString)
+//      self.words.append(userString)
+      self.saveWord(userString)
       self.tableView.reloadData()
     }
     
@@ -53,5 +55,8 @@ class WordsTableViewController: UITableViewController {
     present(alert, animated: true)
   }
   
+  func saveWord(_ word: String) {
+    
+  }
   
 }
