@@ -81,7 +81,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add Words" id="1EA-Ee-u8c">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vKF-GJ-IOP"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vKF-GJ-IOP">
+                            <connections>
+                                <action selector="addWords:" destination="xN5-Tu-aX3" id="ZQ1-Iu-JHL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GZH-e5-1Ti" userLabel="First Responder" sceneMemberID="firstResponder"/>
