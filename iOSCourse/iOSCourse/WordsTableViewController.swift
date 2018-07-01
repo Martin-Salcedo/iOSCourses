@@ -15,17 +15,25 @@ class WordsTableViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    let managedContext = appDelegate!.persistentContainer.viewContext
+    let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "List")
+    
+    do {
+      manageObjects = try managedContext.fetch(fetchRequest)
+    } catch let error as NSError {
+      print("no se pudo recuperar los datos de coredata \(error),  errorInfo \(error.userInfo)")
+    }
+    
   }
   
   // MARK: - Table view data source
   
   override func numberOfSections(in tableView: UITableView) -> Int {
-    // #warning Incomplete implementation, return the number of sections
     return 1
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    // #warning Incomplete implementation, return the number of rows
     return manageObjects.count
   }
   
@@ -43,7 +51,6 @@ class WordsTableViewController: UITableViewController {
     
     let saveWord = UIAlertAction(title: "Add", style: .default) { (UIAlertAction) -> Void in
       guard  let textField = alert.textFields?.first, let userString = textField.text else { return }
-//      self.words.append(userString)
       self.saveWord(userString)
       self.tableView.reloadData()
     }
@@ -56,6 +63,21 @@ class WordsTableViewController: UITableViewController {
   }
   
   func saveWord(_ word: String) {
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate //delegado de la aplicacion
+    let manageContext = appDelegate!.persistentContainer.viewContext //
+    
+    guard let entity = NSEntityDescription.entity(forEntityName: "List", in: manageContext) else { return } //se crea un objeto Entity y referencia
+    let managedObjet = NSManagedObject(entity: entity, insertInto: manageContext)
+    
+    managedObjet.setValue(word, forKeyPath: "word") //se guarda en la memoria del dispositivo
+    
+//    utilizando un do try, para recuperar los datos
+    do { // hace la accion
+      try manageContext.save()
+      manageObjects.append(managedObjet)
+    } catch let error as NSError { //atrapa el error
+      print("no se pudo guardar el elemento, el error: \(error), errorInfo \(error.userInfo)")
+    }
     
   }
   
