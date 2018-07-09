@@ -21,20 +21,44 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vX2-94-FiD">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="30" sectionInsetReference="safeArea" id="GAM-xV-evF">
-                                    <size key="itemSize" width="70" height="50"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" sectionInsetReference="safeArea" id="GAM-xV-evF">
+                                    <size key="itemSize" width="268" height="190"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="FjT-XJ-uDr">
-                                        <rect key="frame" x="0.0" y="0.0" width="70" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="FjT-XJ-uDr" customClass="ImageCollectionCell" customModule="iOSCourse" customModuleProvider="target">
+                                        <rect key="frame" x="53.5" y="0.0" width="268" height="190"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="70" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="268" height="190"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1un-G0-Ncg">
+                                                    <rect key="frame" x="0.0" y="0.0" width="268" height="190"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YdE-7d-Qov">
+                                                    <rect key="frame" x="20" y="141" width="248" height="29"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="26"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="1un-G0-Ncg" firstAttribute="top" secondItem="FjT-XJ-uDr" secondAttribute="top" id="5zH-N1-f6u"/>
+                                            <constraint firstAttribute="trailing" secondItem="1un-G0-Ncg" secondAttribute="trailing" id="N89-xS-Dax"/>
+                                            <constraint firstItem="YdE-7d-Qov" firstAttribute="leading" secondItem="FjT-XJ-uDr" secondAttribute="leading" constant="20" id="Ncm-xN-3mb"/>
+                                            <constraint firstAttribute="bottom" secondItem="1un-G0-Ncg" secondAttribute="bottom" id="TBX-Bg-G5D"/>
+                                            <constraint firstAttribute="trailing" secondItem="YdE-7d-Qov" secondAttribute="trailing" id="df9-SS-YCV"/>
+                                            <constraint firstItem="1un-G0-Ncg" firstAttribute="leading" secondItem="FjT-XJ-uDr" secondAttribute="leading" id="iHv-A9-UBU"/>
+                                            <constraint firstAttribute="bottom" secondItem="YdE-7d-Qov" secondAttribute="bottom" constant="20" id="qyP-Xd-9ng"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="Textlbl" destination="YdE-7d-Qov" id="XeY-Gq-g55"/>
+                                            <outlet property="imageCell" destination="1un-G0-Ncg" id="5e7-ci-f07"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
