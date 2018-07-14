@@ -18,13 +18,59 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="fFQ-Vi-9sq">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="120" id="fFQ-Vi-9sq" customClass="RecipeTableViewCell" customModule="iOSCourse" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fFQ-Vi-9sq" id="kwH-eN-Hg0">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gt6-EX-YzX">
+                                            <rect key="frame" x="16" y="5" width="110" height="110"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="110" id="2VV-Oy-Iwk"/>
+                                                <constraint firstAttribute="height" constant="110" id="8g0-dr-jjH"/>
+                                            </constraints>
+                                        </imageView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="94Z-vj-ITl">
+                                            <rect key="frame" x="141" y="10" width="80" height="99.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBc-La-UsK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="30.5"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredientes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tct-G0-eWk">
+                                                    <rect key="frame" x="0.0" y="34.5" width="80" height="30.5"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="15"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sNA-Ut-JOm">
+                                                    <rect key="frame" x="0.0" y="69" width="80" height="30.5"/>
+                                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="gt6-EX-YzX" secondAttribute="bottom" constant="5" id="8NB-EJ-4XM"/>
+                                        <constraint firstItem="gt6-EX-YzX" firstAttribute="leading" secondItem="kwH-eN-Hg0" secondAttribute="leading" constant="16" id="O92-Wc-3zT"/>
+                                        <constraint firstItem="gt6-EX-YzX" firstAttribute="top" secondItem="kwH-eN-Hg0" secondAttribute="top" constant="5" id="Tve-Dy-uxt"/>
+                                        <constraint firstItem="94Z-vj-ITl" firstAttribute="top" secondItem="kwH-eN-Hg0" secondAttribute="top" constant="10" id="W2N-MC-DiY"/>
+                                        <constraint firstItem="94Z-vj-ITl" firstAttribute="leading" secondItem="gt6-EX-YzX" secondAttribute="trailing" constant="15" id="iTE-Uh-HAR"/>
+                                        <constraint firstAttribute="bottom" secondItem="94Z-vj-ITl" secondAttribute="bottom" constant="10" id="wKE-c8-W9U"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="imgRecipe" destination="gt6-EX-YzX" id="geO-v3-vzl"/>
+                                    <outlet property="lblSubtitleRecipe" destination="tct-G0-eWk" id="ojk-pS-HC9"/>
+                                    <outlet property="lblTimeRecipe" destination="sNA-Ut-JOm" id="nkZ-ax-aAd"/>
+                                    <outlet property="lblTitleRecipe" destination="RBc-La-UsK" id="NKQ-ij-jIZ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -35,7 +81,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="64E-uL-s5W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-52" y="56"/>
+            <point key="canvasLocation" x="-52" y="55.322338830584712"/>
         </scene>
     </scenes>
 </document>

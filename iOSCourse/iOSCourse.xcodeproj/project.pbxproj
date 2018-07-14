@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		902AB59B20FA749D008A125C /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902AB59A20FA749D008A125C /* RecipeTableViewCell.swift */; };
 		909B4E4320E08BEF00085577 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909B4E4220E08BEF00085577 /* AppDelegate.swift */; };
 		909B4E4520E08BEF00085577 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909B4E4420E08BEF00085577 /* ViewController.swift */; };
 		909B4E4820E08BEF00085577 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 909B4E4620E08BEF00085577 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		902AB59A20FA749D008A125C /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
 		909B4E3F20E08BEF00085577 /* iOSCourse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSCourse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		909B4E4220E08BEF00085577 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		909B4E4420E08BEF00085577 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		902AB59920FA7478008A125C /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				902AB59A20FA749D008A125C /* RecipeTableViewCell.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
 		909B4E3620E08BEF00085577 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +66,7 @@
 		909B4E4120E08BEF00085577 /* iOSCourse */ = {
 			isa = PBXGroup;
 			children = (
+				902AB59920FA7478008A125C /* cell */,
 				909B4E4220E08BEF00085577 /* AppDelegate.swift */,
 				909B4E4420E08BEF00085577 /* ViewController.swift */,
 				909B4E4620E08BEF00085577 /* Main.storyboard */,
@@ -141,6 +152,7 @@
 				90E9BCE320F3156B005FC3C7 /* Recipe.swift in Sources */,
 				909B4E4520E08BEF00085577 /* ViewController.swift in Sources */,
 				909B4E4320E08BEF00085577 /* AppDelegate.swift in Sources */,
+				902AB59B20FA749D008A125C /* RecipeTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
