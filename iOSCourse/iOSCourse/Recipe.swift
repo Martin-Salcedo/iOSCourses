@@ -15,6 +15,7 @@ class Recipe {
   var time: Int!
   var ingredients: [String]!
   var steps: [String]!
+  var isFavorite: Bool = false
   
   init(name: String, image: UIImage, time: Int, ingredients: [String], steps: [String]) {
     self.name = name

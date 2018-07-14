@@ -53,11 +53,25 @@ class ViewController: UITableViewController {
     cell.lblSubtitleRecipe.text = "Ingredientes: \(recipes[indexPath.row].ingredients.count)"
     cell.imgRecipe.layer.cornerRadius = cell.imgRecipe.bounds.height / 2.0
     cell.imgRecipe.clipsToBounds = true
+    if recipes[indexPath.row].isFavorite {
+      cell.accessoryType = .checkmark
+    } else {
+      cell.accessoryType = .none
+    }
     return cell
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    print("selecciono \(recipes[indexPath.row].name)")
+    let alertController = UIAlertController(title: recipes[indexPath.row].name!, message: "Valora este plato", preferredStyle: .alert)
+    let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+    let favoriteAction = UIAlertAction(title: "Favorito", style: .default) { (action) in
+      let recipe = self.recipes[indexPath.row]
+      recipe.isFavorite = !recipe.isFavorite
+      self.tableView.reloadData()
+    }
+    alertController.addAction(cancelAction)
+    alertController.addAction(favoriteAction)
+    present(alertController, animated: true, completion: nil)
   }
 }
 
