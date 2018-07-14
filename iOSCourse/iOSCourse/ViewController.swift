@@ -14,16 +14,20 @@ class ViewController: UITableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    var recipe = Recipe(name: "Sopa de Tortilla")
+    var recipe = Recipe(name: "Sopa de Tortilla", image: #imageLiteral(resourceName: "sopa_tortilla"))
     recipes.append(recipe)
-    recipe = Recipe(name: "Pizza de Peperonni")
+    recipe = Recipe(name: "Pizza de Peperonni", image: #imageLiteral(resourceName: "pizza"))
     recipes.append(recipe)
-    recipe = Recipe(name: "Torta huazteca")
+    recipe = Recipe(name: "Torta huazteca", image: #imageLiteral(resourceName: "torta_azteca"))
     recipes.append(recipe)
-    recipe = Recipe(name: "Ensalada Cesar")
+    recipe = Recipe(name: "Ensalada Cesar", image: #imageLiteral(resourceName: "ensalada_cesar"))
     recipes.append(recipe)
-    recipe = Recipe(name: "Hamburgesa triple")
+    recipe = Recipe(name: "Hamburgesa triple", image: #imageLiteral(resourceName: "hamburguesa"))
     recipes.append(recipe)
+  }
+  
+  override var prefersStatusBarHidden: Bool {
+    return true
   }
 
   override func didReceiveMemoryWarning() {
@@ -41,8 +45,9 @@ class ViewController: UITableViewController {
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-    guard let nameRecipe = recipes[indexPath.row].name else { return cell }
+    guard let nameRecipe = recipes[indexPath.row].name, let imageDish = recipes[indexPath.row].image  else { return cell }
     cell.textLabel?.text = nameRecipe
+    cell.imageView?.image = imageDish
     return cell
   }
 }
