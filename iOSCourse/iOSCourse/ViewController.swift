@@ -62,9 +62,16 @@ class ViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let alertController = UIAlertController(title: recipes[indexPath.row].name!, message: "Valora este plato", preferredStyle: .alert)
+    let recipe = recipes[indexPath.row]
+    let alertController = UIAlertController(title: recipe.name, message: "Valora este plato", preferredStyle: .alert)
     let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
-    let favoriteAction = UIAlertAction(title: "Favorito", style: .default) { (action) in
+    var favoriteActionTitle: String = "Favorito"
+    var favoriteActionStyle: UIAlertActionStyle = .default
+    if recipe.isFavorite {
+      favoriteActionTitle = "No Favorito"
+      favoriteActionStyle = .destructive
+    }
+    let favoriteAction = UIAlertAction(title: favoriteActionTitle, style: favoriteActionStyle) { (action) in
       let recipe = self.recipes[indexPath.row]
       recipe.isFavorite = !recipe.isFavorite
       self.tableView.reloadData()
