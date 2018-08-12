@@ -81,14 +81,30 @@ class ViewController: UITableViewController {
     present(alertController, animated: true, completion: nil)
   }
   
-  override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-    switch editingStyle {
-    case .delete:
+//  override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//    switch editingStyle {
+//    case .delete:
+//
+//    default:
+//      break
+//    }
+//  }
+  
+  override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    let shareAction = UITableViewRowAction(style: .default, title: "Compartir") { (action, indexPath) in
+      let shareDefaultText = "Estoy mirando la receta de \(self.recipes[indexPath.row].name) en la app de Curso 10"
+      
+      let activityController = UIActivityViewController(activityItems: [shareDefaultText], applicationActivities: nil)
+      self.present(activityController, animated: true, completion: nil)
+    }
+    shareAction.backgroundColor = UIColor.blue
+    
+    let deleteAction = UITableViewRowAction(style: .destructive, title: "delete") { (action, indexPath) in
       self.recipes.remove(at: indexPath.row)
       tableView.deleteRows(at: [indexPath], with: .fade)
-    default:
-      break
     }
+    deleteAction.backgroundColor = UIColor.red
+    return [shareAction, deleteAction]
   }
 }
 
