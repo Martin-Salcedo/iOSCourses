@@ -80,5 +80,15 @@ class ViewController: UITableViewController {
     alertController.addAction(favoriteAction)
     present(alertController, animated: true, completion: nil)
   }
+  
+  override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    switch editingStyle {
+    case .delete:
+      self.recipes.remove(at: indexPath.row)
+      tableView.deleteRows(at: [indexPath], with: .fade)
+    default:
+      break
+    }
+  }
 }
 
