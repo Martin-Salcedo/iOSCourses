@@ -62,23 +62,23 @@ class ViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let recipe = recipes[indexPath.row]
-    let alertController = UIAlertController(title: recipe.name, message: "Valora este plato", preferredStyle: .alert)
-    let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
-    var favoriteActionTitle: String = "Favorito"
-    var favoriteActionStyle: UIAlertActionStyle = .default
-    if recipe.isFavorite {
-      favoriteActionTitle = "No Favorito"
-      favoriteActionStyle = .destructive
-    }
-    let favoriteAction = UIAlertAction(title: favoriteActionTitle, style: favoriteActionStyle) { (action) in
-      let recipe = self.recipes[indexPath.row]
-      recipe.isFavorite = !recipe.isFavorite
-      self.tableView.reloadData()
-    }
-    alertController.addAction(cancelAction)
-    alertController.addAction(favoriteAction)
-    present(alertController, animated: true, completion: nil)
+//    let recipe = recipes[indexPath.row]
+//    let alertController = UIAlertController(title: recipe.name, message: "Valora este plato", preferredStyle: .alert)
+//    let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+//    var favoriteActionTitle: String = "Favorito"
+//    var favoriteActionStyle: UIAlertActionStyle = .default
+//    if recipe.isFavorite {
+//      favoriteActionTitle = "No Favorito"
+//      favoriteActionStyle = .destructive
+//    }
+//    let favoriteAction = UIAlertAction(title: favoriteActionTitle, style: favoriteActionStyle) { (action) in
+//      let recipe = self.recipes[indexPath.row]
+//      recipe.isFavorite = !recipe.isFavorite
+//      self.tableView.reloadData()
+//    }
+//    alertController.addAction(cancelAction)
+//    alertController.addAction(favoriteAction)
+//    present(alertController, animated: true, completion: nil)
   }
   
 //  override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -90,21 +90,33 @@ class ViewController: UITableViewController {
 //    }
 //  }
   
-  override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-    let shareAction = UITableViewRowAction(style: .default, title: "Compartir") { (action, indexPath) in
-      let shareDefaultText = "Estoy mirando la receta de \(self.recipes[indexPath.row].name) en la app de Curso 10"
-      
-      let activityController = UIActivityViewController(activityItems: [shareDefaultText], applicationActivities: nil)
-      self.present(activityController, animated: true, completion: nil)
+//  override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+////    let shareAction = UITableViewRowAction(style: .default, title: "Compartir") { (action, indexPath) in
+////      let shareDefaultText = "Estoy mirando la receta de \(self.recipes[indexPath.row].name) en la app de Curso 10"
+////
+////      let activityController = UIActivityViewController(activityItems: [shareDefaultText], applicationActivities: nil)
+////      self.present(activityController, animated: true, completion: nil)
+////    }
+////    shareAction.backgroundColor = UIColor.blue
+////
+////    let deleteAction = UITableViewRowAction(style: .destructive, title: "delete") { (action, indexPath) in
+////      self.recipes.remove(at: indexPath.row)
+////      tableView.deleteRows(at: [indexPath], with: .fade)
+////    }
+////    deleteAction.backgroundColor = UIColor.red
+////    return [shareAction, deleteAction]
+//  }
+  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 120
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "showDetailRecipe" {
+      guard let indexPath = self.tableView.indexPathForSelectedRow else { return }
+      let selectedRecipe = self.recipes[indexPath.row]
+      let destinationViewController = segue.destination as! DetailViewController
+      destinationViewController.recipe = selectedRecipe
     }
-    shareAction.backgroundColor = UIColor.blue
-    
-    let deleteAction = UITableViewRowAction(style: .destructive, title: "delete") { (action, indexPath) in
-      self.recipes.remove(at: indexPath.row)
-      tableView.deleteRows(at: [indexPath], with: .fade)
-    }
-    deleteAction.backgroundColor = UIColor.red
-    return [shareAction, deleteAction]
   }
 }
 
